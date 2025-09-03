@@ -6,7 +6,5 @@ namespace EDaemon.Events
     {
         public Guid ActiveId { get; set; }
         public Guid? PassiveId { get; set; }
-        DateTime OccurredAt { get; }
-        string EventType { get; }
     }
 }
