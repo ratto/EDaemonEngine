@@ -14,7 +14,7 @@ namespace EDaemon.Domain.Characters
         public List<Skill>? SkillList { get; set; }
         public List<CombatSkill>? CombatSkillList { get; set; }
         public List<Enhancement>? EnhancementList { get; set; }
-        public Weapon? EquippedWeapon { get; set; }
+        public List<Weapon>? EquippedWeapons { get; set; }
         public List<ProtectiveItem>? EquipedProtection { get; set; }
 
         public Character(string name, CharacterAttribute attribute)
@@ -31,7 +31,9 @@ namespace EDaemon.Domain.Characters
             double? currentHp,
             List<Skill>? skills, 
             List<CombatSkill>? combatSkills, 
-            List<Enhancement>? enhancements
+            List<Enhancement>? enhancements,
+            List<Weapon>? equippedWeapons,
+            List<ProtectiveItem>? equipedProtection
             )
         {
             Name = name;
@@ -41,6 +43,8 @@ namespace EDaemon.Domain.Characters
             SkillList = skills ?? new List<Skill>();
             CombatSkillList = combatSkills ?? new List<CombatSkill>();
             EnhancementList = enhancements ?? new List<Enhancement>();
+            EquippedWeapons = equippedWeapons ?? new List<Weapon>();
+            EquipedProtection = equipedProtection ?? new List<ProtectiveItem>();
         }
     }
 }

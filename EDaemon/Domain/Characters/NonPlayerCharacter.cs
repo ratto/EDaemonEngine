@@ -15,9 +15,11 @@ namespace EDaemon.Domain.Characters
                 List<Skill>? skills = null,
                 List<CombatSkill>? combatSkills = null,
                 List<Enhancement>? enhancements = null,
+                List<Weapon>? equippedWeapons = null,
+                List<ProtectiveItem>? equipedProtection = null,
                 string? species = null,
                 List<Item>? bounty = null
-            ) : base(name, attribute, currentHp, skills, combatSkills, enhancements)
+            ) : base(name, attribute, currentHp, skills, combatSkills, enhancements, equippedWeapons, equipedProtection)
         {
             Species = species ?? name;
             Bounty = bounty ?? new List<Item>();

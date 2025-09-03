@@ -20,8 +20,10 @@ namespace EDaemon.Domain.Characters
             List<Skill>? skills,
             List<CombatSkill>? combatSkills,
             List<Enhancement>? enhancements,
-            List<Item>? carriedItems
-            ) : base(name, attribute, currentHp, skills, combatSkills, enhancements)
+            List<Item>? carriedItems,
+            List<Weapon>? equippedWeapons,
+            List<ProtectiveItem>? equipedProtection
+            ) : base(name, attribute, currentHp, skills, combatSkills, enhancements, equippedWeapons, equipedProtection)
         {
             Name = name;
             Age = age;

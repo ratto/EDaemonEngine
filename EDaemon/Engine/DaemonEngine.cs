@@ -71,13 +71,12 @@ namespace EDaemon.Engine
 
         private TestResult CalculateTestResult(TestContext context, List<RuleResult>? ruleResults) {
             int totalModifier = 0;
-            int totalScore = 0;
-            int attributeScore = 1;
+            int totalScore = 1;
             List<RuleResult> appliedRules = new List<RuleResult>();
 
             if (ruleResults != null && ruleResults.Count > 0)
             {
-                appliedRules = ruleResults.Where(mod => mod.Modifier.Key == "SkillModifier").ToList();
+                appliedRules = ruleResults.Where(mod => mod.Modifier.Key == "AttributeModifier").ToList();
                 totalModifier = appliedRules.Sum(mod => mod.Modifier.Value);
             }
             
@@ -90,10 +89,9 @@ namespace EDaemon.Engine
 
             return new TestResult
             {
-                Success = context.BaseRoll <= attributeScore + totalModifier - (context.Difficulty ?? 0),
+                Success = context.BaseRoll <= totalScore + totalModifier - (context.Difficulty ?? 0),
                 AppliedModifiers = appliedRules,
                 ModTotal = totalModifier,
-                Score = attributeScore,
                 TotalScore = totalScore,
             };
         }
